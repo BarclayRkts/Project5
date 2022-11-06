@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH -A SEE22001         # account name
+#SBATCH -J p5_collatz       # job name
+#SBATCH -o p5_collatz.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p rtx-dev          # queue name
+#SBATCH -t 00:00:30         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./collatz_cuda 7 200000000
+./collatz_cuda 7 200000000
+
+./collatz_cuda 7 2000000000
+./collatz_cuda 7 2000000000
+
+./collatz_cuda 7 10000000000
+./collatz_cuda 7 10000000000
+
+date

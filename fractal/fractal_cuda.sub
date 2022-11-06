@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -A SEE22001         # account name
+#SBATCH -J p5_fractal       # job name
+#SBATCH -o p5_fractal.%j    # name of the output and error file
+#SBATCH -N 1                # total number of nodes requested
+#SBATCH -n 1                # total number of tasks requested
+#SBATCH -p rtx-dev          # queue name
+#SBATCH -t 00:00:30         # expected maximum runtime (hh:mm:ss)
+
+date
+
+./fractal_cuda 1024 32
+./fractal_cuda 1024 64
+./fractal_cuda 4096 32
+./fractal_cuda 4096 64
+
+./fractal_float 1024 32
+./fractal_float 1024 64
+./fractal_float 4096 32
+./fractal_float 4096 64
+
+date

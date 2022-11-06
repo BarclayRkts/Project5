@@ -1,0 +1,2 @@
+nvcc -O3 -arch=sm_35 collatz_cuda.cu -o collatz_cuda
+cuda-memcheck ./collatz_cuda 7 200000000
